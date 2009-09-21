@@ -67,6 +67,8 @@ class sfTemplatingComponentView extends sfPHPView
   {
     $this->loadCoreAndStandardHelpers();
 
-    return $this->getEngine()->render($this->getTemplate());
+    $this->attributeHolder->set('sf_type', 'action');
+
+    return $this->getEngine()->render($this->getTemplate(), $this->attributeHolder->toArray());
   }
 }
