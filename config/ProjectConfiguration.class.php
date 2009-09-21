@@ -8,5 +8,8 @@ class ProjectConfiguration extends sfProjectConfiguration
   public function setup()
   {
     $this->enablePlugins('sfDoctrinePlugin');
+
+    require_once sfConfig::get('sf_lib_dir').'/vendor/SymfonyTemplating/sfTemplateAutoloader.php';
+    sfTemplateAutoloader::register();
   }
 }
