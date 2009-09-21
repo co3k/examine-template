@@ -1,2 +1,2 @@
 <?php $this->extend('layout.php') ?>
-It works!
+Hello, <?php echo $name; ?>!

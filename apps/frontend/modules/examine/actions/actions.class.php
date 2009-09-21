@@ -17,5 +17,6 @@ class examineActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->name = 'Kousuke Ebihara';
   }
 }
