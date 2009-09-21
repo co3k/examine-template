@@ -16,6 +16,57 @@
 * limitations under the License.
 */
 
-class sfTemplatingComponentView extends sfView
+class sfTemplatingComponentView extends sfPHPView
 {
+  protected
+    $loader = null,
+    $engine = null;
+
+  /**
+   * Executes any presentation logic for this view.
+   */
+  public function execute()
+  {
+    $decoratorDirs = $this->context->getConfiguration()->getDecoratorDirs();
+    foreach ($decoratorDirs as $k => $v)
+    {
+      $decoratorDirs[$k] = $v.'/%name%';
+    }
+
+    $templateDirs = array_merge(array($this->getDirectory().'/%name%'), $decoratorDirs);
+
+    $this->loader = new sfTemplateLoaderFilesystem($templateDirs);
+    $this->engine = new sfTemplateEngine($this->loader);
+  }
+
+  /**
+   * Retrieves the template engine associated with this view.
+   */
+  public function getEngine()
+  {
+    return $this->engine;
+  }
+
+  /**
+   * Configures template.
+   */
+  public function configure()
+  {
+    $this->setTemplate($this->actionName.$this->viewName.$this->getExtension());
+
+    if (!$this->directory)
+    {
+      $this->setDirectory($this->context->getConfiguration()->getTemplateDir($this->moduleName, $this->getTemplate()));
+    }
+  }
+
+  /**
+   * Renders the presentation.
+   */
+  public function render()
+  {
+    $this->loadCoreAndStandardHelpers();
+
+    return $this->getEngine()->render($this->getTemplate());
+  }
 }
