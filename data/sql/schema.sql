@@ -1,0 +1,1 @@
+CREATE TABLE template (id INT AUTO_INCREMENT COMMENT 'Serial number', name VARCHAR(64) DEFAULT '' NOT NULL COMMENT 'Template name', body TEXT COMMENT 'Template body', renderer VARCHAR(64) DEFAULT '' NOT NULL COMMENT 'renderer', PRIMARY KEY(id)) COMMENT = 'Saves informations of templates' DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = INNODB;

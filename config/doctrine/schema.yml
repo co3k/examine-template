@@ -1,0 +1,14 @@
+options:
+  charset: utf8
+
+Template:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    name: { type: string(64), default: "", notnull: true, comment: "Template name" }
+    body: { type: string, comment: "Template body" }
+    renderer: { type: string(64), default: "", notnull: true, comment: "renderer" }
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves informations of templates"

@@ -3,12 +3,17 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
+    <title><?php $this->output('title', $sf_context->getResponse()->getTitle()) ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
   </head>
   <body>
-    <?php echo $this->get('content') ?>
+    <h1><?php $this->output('title', $sf_context->getResponse()->getTitle()) ?></h1>
+    <?php echo $this->get('content'); ?>
+
+    <div>
+    <?php echo $this->render($sf_request->getParameter('loader', 'php').':ebi.'.$sf_request->getParameter('loader', 'php'), $sf_data->getRawValue()); ?>
+    </div>
   </body>
 </html>

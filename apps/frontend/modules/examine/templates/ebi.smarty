@@ -1,0 +1,4 @@
+ebi
+{debug}
+
+{$sf_request->getParameter('loader')}

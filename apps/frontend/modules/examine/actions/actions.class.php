@@ -18,5 +18,16 @@ class examineActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->name = 'Kousuke Ebihara';
+
+    $this->food = array(
+      '氷砂糖', '梅',
+    );
+    $this->drink = array(
+      '爽健美茶',
+    );
+  }
+
+  public function executeEmb(sfWebRequest $request)
+  {
   }
 }

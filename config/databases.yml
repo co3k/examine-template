@@ -2,6 +2,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=examine-template
+      dsn:      mysql:host=localhost;dbname=examine_template
       username: root
       password: 

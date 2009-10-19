@@ -1,2 +1,12 @@
 # default values
-#all:
+all:
+  sfSymfonyTemplatingViewPlugin:
+    rules:
+      php:
+#        - { loader: sfTemplateLoaderDoctrine, renderer: php, model: Template }
+        - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: php }
+      smarty:
+#        - { loader: sfTemplateLoaderDoctrine, renderer: php, model: Template }
+        - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: smarty }
+    renderers:
+      smarty: sfTemplateRendererSmarty
