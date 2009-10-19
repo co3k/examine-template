@@ -21,6 +21,8 @@ all:
         - { loader: sfTemplateLoaderRequest, renderer: tal }
       request_twig: # Twig をパーサに使う
         - { loader: sfTemplateLoaderRequest, renderer: twig }
+      request_dwoo: # Dwoo をパーサに使う
+        - { loader: sfTemplateLoaderRequest, renderer: dwoo }
     renderers:
       smarty: sfTemplateRendererSmarty
       tal: sfTemplateRendererPhptal
@@ -28,4 +30,5 @@ all:
       request_smarty: sfTemplateRendererSmarty
       request_php: sfTemplateRendererPhp
       request_twig: sfTemplateRendererTwig
+      request_dwoo: sfTemplateRendererDwoo
 
