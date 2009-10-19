@@ -11,9 +11,5 @@
   <body>
     <h1><?php $this->output('title', $sf_context->getResponse()->getTitle()) ?></h1>
     <?php echo $this->get('content'); ?>
-
-    <div>
-    <?php echo $this->render($sf_request->getParameter('loader', 'php').':ebi.'.$sf_request->getParameter('loader', 'php'), $sf_data->getRawValue()); ?>
-    </div>
   </body>
 </html>
