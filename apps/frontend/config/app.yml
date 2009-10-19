@@ -13,7 +13,16 @@ all:
         # データベースを読みに行き、なければ PHP ファイルを読み込む
         - { loader: sfTemplateLoaderDoctrine, renderer: tal, model: Template }
         - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: php }
+      request_php: # PHP をパーサに使う
+        - { loader: sfTemplateLoaderRequest, renderer: php }
+      request_smarty: # Smarty をパーサに使う
+        - { loader: sfTemplateLoaderRequest, renderer: smarty }
+      request_tal: # Smarty をパーサに使う
+        - { loader: sfTemplateLoaderRequest, renderer: tal }
     renderers:
       smarty: sfTemplateRendererSmarty
       tal: sfTemplateRendererPhptal
+      request_tal: sfTemplateRendererPhptal
+      request_smarty: sfTemplateRendererSmarty
+      request_php: sfTemplateRendererPhp
 

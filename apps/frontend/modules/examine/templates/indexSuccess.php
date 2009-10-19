@@ -22,3 +22,13 @@ Hello, <?php echo $name; ?>!
   </ul></dd>
 </dl>
 <?php $this->stop(); ?>
+
+<form action="<?php echo url_for('examine/index?loader='.$sf_request->getParameter('loader', 'php')) ?>" method="post">
+<textarea name="body">
+<?php echo $sf_request->getParameter('body', '<p>example</p>'); ?>
+</textarea>
+<input type="submit" value="Send" />
+</form>
+
+<?php echo $this->render('request_'.$sf_request->getParameter('loader', 'php').':body', $sf_data->getRawValue()) ?>
+
