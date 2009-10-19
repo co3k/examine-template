@@ -2,11 +2,18 @@
 all:
   sfSymfonyTemplatingViewPlugin:
     rules:
-      php:
-#        - { loader: sfTemplateLoaderDoctrine, renderer: php, model: Template }
+      php: # PHP をパーサに使う（デフォルト）
+        # 常にファイルから読み込む
         - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: php }
-      smarty:
-#        - { loader: sfTemplateLoaderDoctrine, renderer: php, model: Template }
-        - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: smarty }
+      smarty: # Smarty をパーサに使う
+        # データベースを読みに行き、なければ PHP ファイルを読み込む
+        - { loader: sfTemplateLoaderDoctrine, renderer: smarty, model: Template }
+        - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: php }
+      tal:  # PHPTAL をパーサに使う
+        # データベースを読みに行き、なければ PHP ファイルを読み込む
+        - { loader: sfTemplateLoaderDoctrine, renderer: tal, model: Template }
+        - { loader: sfTemplateLoaderFilesystemForSymfony1, renderer: php }
     renderers:
       smarty: sfTemplateRendererSmarty
+      tal: sfTemplateRendererPhptal
+
