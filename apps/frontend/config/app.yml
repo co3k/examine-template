@@ -17,12 +17,15 @@ all:
         - { loader: sfTemplateLoaderRequest, renderer: php }
       request_smarty: # Smarty をパーサに使う
         - { loader: sfTemplateLoaderRequest, renderer: smarty }
-      request_tal: # Smarty をパーサに使う
+      request_tal: # PHPTAL をパーサに使う
         - { loader: sfTemplateLoaderRequest, renderer: tal }
+      request_twig: # Twig をパーサに使う
+        - { loader: sfTemplateLoaderRequest, renderer: twig }
     renderers:
       smarty: sfTemplateRendererSmarty
       tal: sfTemplateRendererPhptal
       request_tal: sfTemplateRendererPhptal
       request_smarty: sfTemplateRendererSmarty
       request_php: sfTemplateRendererPhp
+      request_twig: sfTemplateRendererTwig
 
